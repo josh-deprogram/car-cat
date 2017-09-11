@@ -6,15 +6,15 @@ import {
   Switch
 } from 'react-router-dom'
 
-import App from './app';
+import Home from './layout/home';
 import Search from './layout/search';
 import Detail from './layout/detail';
-import NotFound from './app';
+import NotFound from './layout/home';
 
 const Routes = (props) => (
   <Router {...props}>
     <Switch>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/make/model/:modelId" component={Detail} />
         <Route exact path="*" component={NotFound} />

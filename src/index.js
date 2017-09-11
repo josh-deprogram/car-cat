@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
+import App from './app';
 import {Provider} from 'react-redux';
 import configureStore from './store/configure-store';
 import './assets/style/index.css';
@@ -12,7 +12,7 @@ const store = configureStore(initialState);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
@@ -20,3 +20,4 @@ ReactDOM.render(
 // Fetch inital data from API
 store.dispatch({type: 'GET_MAKES'});
 store.dispatch({type: 'GET_MODELS'});
+store.dispatch({type: 'GET_CAR_OF_WEEK'});

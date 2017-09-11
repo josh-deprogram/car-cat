@@ -18,6 +18,17 @@
   font-size: large;
 }
 
+.footer{
+  font-size: .7em;
+  position: absolute;
+  bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  pointer-events: none;
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

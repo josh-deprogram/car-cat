@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import logo from './assets/images/logo.svg';
-import './assets/style/app.css';
+import Routes from './routes';
+import NavBar from 'components/nav-bar';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to the Car Catalogue</h2>
-        </div>
-        <p className="App-intro">lkjlkjlkj</p>
+        <NavBar />
+        <Routes />
+        <div className='footer'>Car Catalogue SPA</div>
       </div>
     );
   }
 }
-
-export default App;

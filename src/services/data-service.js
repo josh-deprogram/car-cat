@@ -41,7 +41,7 @@ const dataService = store => next => action => {
 			})
 		break
 
-	case 'GET_CAROFWEEK':
+	case 'GET_CAR_OF_WEEK':
 		request
 			.get('data/carOfTheWeek.json')
 			.end((err, res) => {
