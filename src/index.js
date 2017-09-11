@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router';
 import Routes from './routes';
 import {Provider} from 'react-redux';
 import configureStore from './store/configure-store';
@@ -17,3 +16,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+// Fetch inital data from API
+store.dispatch({type: 'GET_MAKES'});
+store.dispatch({type: 'GET_MODELS'});

@@ -1,10 +1,12 @@
-import sections from './sections-reducer';
-import apiData from './request-reducer';
+import makes from './makes-reducer';
+import models from './models-reducer';
+import carOfWeek from './car-of-week-reducer';
 import {combineReducers} from 'redux';
 
 const rootReducer = combineReducers({
-  sections,
-  apiData
+  makes,
+  models,
+  carOfWeek
 });
 
 export default rootReducer;
