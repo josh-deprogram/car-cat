@@ -1,0 +1,2 @@
+export const ADD_SECTION = 'ADD_SECTION';
+export const GET_DATA_RECEIVED = 'GET_DATA_RECEIVED';
