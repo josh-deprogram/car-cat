@@ -18,6 +18,15 @@
   font-size: large;
 }
 
+.car-promo {
+  padding: 20px;
+  background: rgba(255,0,0,0.4);
+}
+.car-promo h1 {
+  color: red;
+  font-weight: bold;
+}
+
 .footer{
   font-size: .7em;
   position: absolute;

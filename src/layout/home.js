@@ -6,18 +6,56 @@ import 'assets/style/app.css';
 
 class Home extends Component {
 
+  componentWillMount() {
+    this.props.dispatch({type: 'GET_CAR_OF_WEEK'});
+    this.props.dispatch({type: 'GET_MODELS'});
+    this.props.dispatch({type: 'GET_MAKES'});
+  }
+
   componentDidUpdate() {
     console.log('Got the state.. ', this.props);
   }
 
+  showCarOfTheWeek(){
+    const {carOfWeek, models, makes} = this.props;
+    let carDetail = {};
+    let carMake = '';
+    
+    // Get carDetail
+    for (let i = 0; i < models.length; i++) {
+      if(carOfWeek[0].modelId) {
+        carDetail = models[i];
+      }
+    }
+
+    // Get carMake
+    for (let m = 0; m < makes.length; m++) {
+      if(carDetail.makeId) {
+        carMake = makes[m].name;
+      }
+    }
+
+    return (<div className='car-promo'>
+        <h1>Car Of The Week</h1>
+        {/* <p><img src={carDetail.imageUrl} alt='' /></p> */}
+        <p>make: {carMake}</p>
+        <p>model: {carDetail.name}</p>
+        <p>review: {carOfWeek[0].review}</p>
+        <p>price: ${carDetail.price}</p>
+      </div>
+    );
+  }
+
   render() {
+    const {carOfWeek} = this.props;
+    console.log('promo ', carOfWeek[0])
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to the Car Catalogue</h2>
         </div>
-        <p className="App-intro">lkjlkjlkj</p>
+        {carOfWeek[0] ? this.showCarOfTheWeek() : null}
       </div>
     );
   }
@@ -25,7 +63,9 @@ class Home extends Component {
 
 function mapStateToProps(state, props) {
   return {
-    carOfWeek: state.carOfWeek
+    carOfWeek: state.carOfWeek,
+    models: state.models,
+    makes: state.makes,
   };
 }
 

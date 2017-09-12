@@ -18,6 +18,6 @@ ReactDOM.render(
 );
 
 // Fetch inital data from API
-store.dispatch({type: 'GET_MAKES'});
-store.dispatch({type: 'GET_MODELS'});
-store.dispatch({type: 'GET_CAR_OF_WEEK'});
+// store.dispatch({type: 'GET_MAKES'});
+// store.dispatch({type: 'GET_MODELS'});
+// store.dispatch({type: 'GET_CAR_OF_WEEK'});
