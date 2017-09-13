@@ -1,7 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300|Montserrat:700,400);
+
 body, html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  /*background: #ff3232;*/
+  font-family: Montserrat, Helvetica, Times, serif;
+  background-color: #262626;
   /*background: linear-gradient(to bottom, #ff3232 0%,#c96c6c 50%);*/
 }

@@ -5,6 +5,10 @@ import 'assets/style/app.css';
 
 class Detail extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentWillMount() {
     // Grab Car details from the url.
     // Alternative to populate the Redux store, 
@@ -15,6 +19,13 @@ class Detail extends Component {
     this.id = parseInt(url[url.length-1]);
   }
 
+  componentDidMount() {
+    if(this.props.models.length === 0) {
+      this.props.dispatch({type: 'GET_MODELS'});
+      this.props.dispatch({type: 'GET_MAKES'});
+    }
+  }
+
   render() {
     let imageUrl = '';
     let model = '';
@@ -22,9 +33,7 @@ class Detail extends Component {
 
     // Get the car details.
     for (let i = 0; i < this.props.models.length; i++) {
-      console.log('check ', this.props.models[i]) 
       if(this.props.models[i].id === this.id) {
-        console.log('Set___ ', this.props.models[i]) 
         imageUrl = this.props.models[i].imageUrl;
         price = this.props.models[i].price;
         model = this.props.models[i].name;
@@ -36,13 +45,14 @@ class Detail extends Component {
       <div className="App">
         <NavBar />
         <div className="App-header">
-          <h2>Car Detail</h2>
+          <img src={'http://www.pngall.com/wp-content/uploads/2016/04/Car-Wheel-Free-Download-PNG.png'} className="App-logo" alt="wheel" />
+          <h2>The Car Details</h2>
         </div>
         <div className="car-details">
           <p><img width="auto" height="200px" src={imageUrl} alt='' /></p>
-          <p>make: {this.make}</p>
-          <p>model: {model}</p>
-          <p>price: ${price}</p>
+          <p><strong>make:</strong> {this.make}</p>
+          <p><strong>model:</strong>  {model}</p>
+          <p><strong>price:</strong>  ${price}</p>
         </div>
       </div>
     );

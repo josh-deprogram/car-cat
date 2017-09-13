@@ -8,10 +8,8 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.dispatch({type: 'GET_CAR_OF_WEEK'});
-  }
-
-  componentDidUpdate() {
-    console.log('Got the state.. ', this.props);
+    // this.props.dispatch({type: 'GET_MODELS'});
+    // this.props.dispatch({type: 'GET_MAKES'});
   }
 
   showCarOfTheWeek(){
@@ -34,12 +32,15 @@ class Home extends Component {
     }
 
     return (<div className='car-promo'>
-        <h1>Car Of The Week</h1>
-        {/* <p><img src={carDetail.imageUrl} alt='' /></p> // IMAGES BROKEN URLS */}
-        <p>make: {carMake}</p>
-        <p>model: {carDetail.name}</p>
-        <p>review: {carOfWeek[0].review}</p>
-        <p>price: ${carDetail.price}</p>
+        <div className='inner'>
+          <h1>Car Of The Week</h1>
+          <p><img  width='350px' src='https://media.giphy.com/media/JHsos369mkc0M/giphy.gif' /></p>
+          {/* <p><img src={carDetail.imageUrl} alt='' /></p> // IMAGES BROKEN URLS */}
+          <p><strong>make:</strong> {carMake}</p>
+          <p><strong>model:</strong> {carDetail.name}</p>
+          <p><strong>review:</strong> {carOfWeek[0].review}</p>
+          <p><strong>price:</strong> ${carDetail.price}</p>
+        </div>
       </div>
     );
   }
@@ -50,7 +51,7 @@ class Home extends Component {
       <div className="App">
         <NavBar />
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={'http://www.pngall.com/wp-content/uploads/2016/04/Car-Wheel-Free-Download-PNG.png'} className="App-logo" alt="wheel" />
           <h2>Welcome to the Car Catalogue</h2>
         </div>
         {carOfWeek[0] ? this.showCarOfTheWeek() : null}

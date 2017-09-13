@@ -11,4 +11,17 @@
 .form-submit {
 	margin-top: 40px;
 	height: 40px;
+	font-family: Montserrat, Helvetica, Times, serif;
+	font-size: 18px;
+	font-weight: bold;
+	/*color: red;*/
+	background: rgba(0,0,0,0.6);
+	border: none;
+	color: white;
+	transition: background .4s ease, color .3s ease;
+}
+
+.form-submit:disabled{
+	color: rgba(0,0,0,0.7);
+	background: rgba(0,0,0,0.3);
 }

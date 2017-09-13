@@ -5,7 +5,8 @@
     align-items: center;
     color: white;
     height: calc(100% - 20px);
-    background: rgba(200,0,0,1);
+    background: rgba(50,0,0,1);
+    transition: background .5s ease;
 }
 .nav-item:hover {
 	padding: 10px 25px;

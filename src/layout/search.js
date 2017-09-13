@@ -82,34 +82,35 @@ class Search extends Component {
       <div className="App">
         <NavBar />
         <div className="App-header">
+          <img src={'http://www.pngall.com/wp-content/uploads/2016/04/Car-Wheel-Free-Download-PNG.png'} className="App-logo" alt="wheel" />
           <h2>Search page</h2>
         </div>
-        
-        <form onSubmit={this.handleFromSubmit} className="search-form">
-            
-            <p>Make:</p>
-            <select onChange={this.handleMakeChange} className="form-select">
-              <option value="" disabled selected>Select your make</option>
-              {
-                this.props.makes.map((make, index) => {
-                  return <option key={index} value={make.name}>{make.name}</option>
-                })
-              }
-            </select>
+        <div className="inner">
+          <form onSubmit={this.handleFromSubmit} className="search-form">
+              
+              <p>Make:</p>
+              <select onChange={this.handleMakeChange} className="form-select">
+                <option value="" disabled selected>Select your make</option>
+                {
+                  this.props.makes.map((make, index) => {
+                    return <option key={index} value={make.name}>{make.name}</option>
+                  })
+                }
+              </select>
 
-            <p>Model:</p>
-            <select onChange={this.handleModelChange} className="form-select">
-              <option value="" disabled selected>Select your model</option>
-              {
-                this.state.models.map((model, index) => {
-                  return <option key={index} value={model.name}>{model.name}</option>
-                })
-              }
-            </select>
+              <p>Model:</p>
+              <select onChange={this.handleModelChange} className="form-select">
+                <option value="" disabled selected>Select your model</option>
+                {
+                  this.state.models.map((model, index) => {
+                    return <option key={index} value={model.name}>{model.name}</option>
+                  })
+                }
+              </select>
 
-            <input type="submit" value="Submit" disabled={!this.state.chosen} className="form-submit" />
-        </form>
-
+              <input type="submit" value="View Car" disabled={!this.state.chosen} className="form-submit" />
+          </form>
+        </div>
       </div>
     );
   }
