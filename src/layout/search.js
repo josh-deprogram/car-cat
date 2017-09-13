@@ -8,6 +8,7 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
       models: [],
       make: '',
       model: '',
@@ -20,24 +21,15 @@ class Search extends Component {
     this.handleFromSubmit = this.handleFromSubmit.bind(this);
   }
 
-  componentWillMount() {
-    // this.props.dispatch({type: 'GET_MODELS'});
-    // this.props.dispatch({type: 'GET_MAKES'});
-  }
-
   componentDidMount() {
     console.log('Search Props', this.props);
   }
 
-  componentWillReceiveProps(props) {
-    // this.setState({makes});
-    console.log('New Search Props', props);
-  }
-
   handleFromSubmit(event) {
     event.preventDefault();
-    const url = '/' + this.state.make + '/' + this.state.model + '/'+ this.state.modelId;
-    alert(url);
+    // Create the detail url
+    const url = '/' + this.state.make + '/' + this.state.model + '/'+ this.state.id;
+    // alert(url);
     // Route to Detail page
     this.props.history.push(url);
   }
@@ -68,8 +60,19 @@ class Search extends Component {
   }
 
   handleModelChange(event) {
+    const model = event.target.value;
+    let id = 0;
+
+    // Get the Model Id
+    for (let m = 0; m < this.props.models.length; m++) {
+      if(this.props.models[m].name === model) {
+        id = this.props.models[m].id;  
+      }
+    }
+
     this.setState({
-      model: event.target.value,
+      id,
+      model,
       chosen: true
     });
   }

@@ -1,9 +1,9 @@
 import * as types from './action-types';
 
-export const addSection = (section) => {
+export const setDetail = (detail) => {
   return {
-    type: types.ADD_SECTION,
-    section
+    type: types.SET_DETAIL_DATA,
+    detail
   };
 }
 

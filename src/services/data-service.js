@@ -13,8 +13,9 @@ const dataService = store => next => action => {
 						err
 					})
 				}
+	
 				const data = JSON.parse(res.text)
-				console.log(data)
+				
 				next({
 					type: 'GET_MAKES_RECEIVED',
 					data
@@ -33,7 +34,6 @@ const dataService = store => next => action => {
 					})
 				}
 				const data = JSON.parse(res.text)
-				console.log(data)
 				next({
 					type: 'GET_MODELS_RECEIVED',
 					data
@@ -52,13 +52,18 @@ const dataService = store => next => action => {
 					})
 				}
 				const data = JSON.parse(res.text)
-				console.log(data)
 				next({
 					type: 'GET_CAR_OF_WEEK_RECEIVED',
 					data
 				})
 			})
 		break
+
+	case 'SET_DETAIL':
+		next({
+			type: 'SET_DETAIL_DATA',
+		})
+	break
 
 	default:
 		break

@@ -27,6 +27,10 @@
   font-weight: bold;
 }
 
+.car-details {
+  padding: 20px;
+}
+
 .footer{
   font-size: .7em;
   position: absolute;

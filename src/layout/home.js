@@ -8,8 +8,6 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.dispatch({type: 'GET_CAR_OF_WEEK'});
-    // this.props.dispatch({type: 'GET_MODELS'});
-    // this.props.dispatch({type: 'GET_MAKES'});
   }
 
   componentDidUpdate() {
@@ -37,7 +35,7 @@ class Home extends Component {
 
     return (<div className='car-promo'>
         <h1>Car Of The Week</h1>
-        {/* <p><img src={carDetail.imageUrl} alt='' /></p> */}
+        {/* <p><img src={carDetail.imageUrl} alt='' /></p> // IMAGES BROKEN URLS */}
         <p>make: {carMake}</p>
         <p>model: {carDetail.name}</p>
         <p>review: {carOfWeek[0].review}</p>
@@ -48,7 +46,6 @@ class Home extends Component {
 
   render() {
     const {carOfWeek} = this.props;
-    console.log('promo ', carOfWeek[0])
     return (
       <div className="App">
         <NavBar />
