@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import NavBar from 'components/nav-bar';
 import logo from 'assets/images/logo.svg';
 import 'assets/style/app.css';
 
@@ -8,8 +8,8 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.dispatch({type: 'GET_CAR_OF_WEEK'});
-    this.props.dispatch({type: 'GET_MODELS'});
-    this.props.dispatch({type: 'GET_MAKES'});
+    // this.props.dispatch({type: 'GET_MODELS'});
+    // this.props.dispatch({type: 'GET_MAKES'});
   }
 
   componentDidUpdate() {
@@ -51,6 +51,7 @@ class Home extends Component {
     console.log('promo ', carOfWeek[0])
     return (
       <div className="App">
+        <NavBar />
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to the Car Catalogue</h2>
@@ -68,11 +69,5 @@ function mapStateToProps(state, props) {
     makes: state.makes,
   };
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     carOfWeek: bindActionCreators(sectionActions, dispatch)
-//   }
-// }
 
 export default connect(mapStateToProps)(Home);

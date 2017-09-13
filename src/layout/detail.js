@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import NavBar from 'components/nav-bar';
 import 'assets/style/app.css';
 
-export default class Detail extends Component {
+class Detail extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <div className="App-header">
           <h2>Car Detail</h2>
         </div>
@@ -13,3 +16,13 @@ export default class Detail extends Component {
     );
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    carOfWeek: state.carOfWeek,
+    models: state.models,
+    makes: state.makes,
+  };
+}
+
+export default connect(mapStateToProps)(Detail);
